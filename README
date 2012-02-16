@@ -1,0 +1,21 @@
+
+             n___n   grr.  arr.
+  bytebear  (=9v9=) /
+            (")_(")
+
+bytebear is a typo of bytebeat.  It is meant to be a quick, dirty, easy
+tool for people to create microcompositions in C++ that can be readily
+linked into an execution environment that provides useful audio and
+visual output formats.
+
+All modules must implement a constructor, destructor, and Run method
+for the ByteBear class defined in bytebear.h.  Everything else is automagic.
+
+I <3 YOU, CONTACT ME: jonathan.mayer@gmail.com
+
+TODO:
+  - replace dependency on sox with code to generate WAV files natively.
+  - add more visualization packages.
+  - add command line switch parsing and stuff.
+  - add unit tests for PgmWriter.
+  - write a new song for a new day.
