@@ -8,6 +8,10 @@ tool for people to create microcompositions in C++ that can be readily
 linked into an execution environment that provides useful audio and
 visual output formats.
 
+PLEASE CONTRIBUTE YOUR OWN SONGS TO THIS REPOSITORY!  As software, bytebear
+is craptacular -- but as a free and public github repository, maybe we can
+kindle a music making community together.
+
 All modules must implement a constructor, destructor, and Run method
 for the ByteBear class defined in bytebear.h.  Everything else is automagic.
 
