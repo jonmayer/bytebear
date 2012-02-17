@@ -6,6 +6,7 @@ CC=g++
 SIZE=$(shell echo $$((4 * 1024 * 1024)) )
 MODULES=$(patsubst %.cc,%,$(filter-out bytebear_main.cc,$(wildcard *.cc)))
 TARGETS=$(patsubst %,%.wav,$(MODULES))
+CPPFLAGS=-g
 
 
 all: $(TARGETS)
