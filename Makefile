@@ -4,20 +4,29 @@
 
 CC=g++
 SIZE=$(shell echo $$((4 * 1024 * 1024)) )
-MODULES=$(patsubst %.cc,%,$(filter-out bytebear_main.cc,$(wildcard *.cc)))
+MODULES=$(patsubst %.cc,%, \
+	    $(shell find songs -name \*.cc))
 TARGETS=$(patsubst %,%.wav,$(MODULES))
-CPPFLAGS=-g
+CPPFLAGS=-g -I $(PWD)
 
-
-all: $(TARGETS)
+all:
 	@echo ""
 	@echo " n___n"
 	@echo "(=9v9=) bytebear"
-	@echo "(\")_(\") $(MODULES)"
+	@echo "(\")_(\")"
 	@echo ""
+	@echo "To make all songs in wav format: make wav"
+	@echo "To make all songs in mp3 format: make mp3"
+	@echo "To clean up afterwards: make clean"
+
+wav: $(patsubst %,%.wav,$(MODULES))
+	@echo Done.
+
+mp3: $(patsubst %,%.mp3,$(MODULES))
+	@echo Done.
 
 clean:
-	rm -f *.bb *.o *.wav *.pgm *.ppm
+	rm -f *.o songs/*/*.{bb,o,wav,pgm,ppm,mp3.png,jpg}
 
 bytebear_main.o: bytebear_main.cc bytebear.h
 
@@ -27,3 +36,6 @@ bytebear_main.o: bytebear_main.cc bytebear.h
 %.wav: %.bb
 	./$< $(SIZE) > $@.raw
 	sox -r 44100 -c 1 -t u8 $@.raw $@ && rm $@.raw
+
+%.mp3: %.wav
+	lame --quiet --alt-preset standard -m m $< $@
