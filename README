@@ -14,6 +14,7 @@ for the ByteBear class defined in bytebear.h.  Everything else is automagic.
 I <3 YOU, CONTACT ME: jonathan.mayer@gmail.com
 
 TODO:
+  - reorganize the songs to make it easier for users to contribute.
   - replace dependency on sox with code to generate WAV files natively.
   - add more visualization packages.
   - add command line switch parsing and stuff.
